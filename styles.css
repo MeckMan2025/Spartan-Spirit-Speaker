@@ -167,9 +167,45 @@ body {
     margin-top: var(--spacing-lg);
 }
 
+.hero-image {
+    position: relative;
+}
+
 .hero-image img {
     width: 100%;
     height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.image-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    background-color: var(--accent-gold);
+    color: var(--primary-navy);
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Demo Section */
+.demo {
+    background-color: var(--bg-light);
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: 315px;
+    height: 560px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
