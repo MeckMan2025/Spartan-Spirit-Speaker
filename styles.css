@@ -433,6 +433,18 @@ section h2 {
     margin-bottom: var(--spacing-sm);
 }
 
+.signup .btn-primary {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    border: 2px solid var(--accent-gold);
+}
+
+.signup .btn-primary:hover {
+    background: var(--white);
+    color: var(--primary-navy);
+    border-color: var(--white);
+}
+
 .signup-content {
     max-width: 600px;
     margin: 0 auto;
