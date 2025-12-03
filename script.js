@@ -62,27 +62,72 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // TODO: Replace with actual Google Form submission URL
-            // For now, show success message
+            // Submit to Google Apps Script
             const button = this.querySelector('button');
             const originalText = button.textContent;
             
             button.textContent = 'Subscribing...';
             button.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                button.textContent = 'Subscribed!';
-                button.style.background = '#28a745';
-                emailInput.value = '';
+            // Create form data
+            const formData = new FormData();
+            formData.append('email', email);
+            
+            // Submit to Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbzFZ3W6ezMOb7ZJXXnTRyBMLplAi4-7QxzloDRs03sfMiZxYyZQZmj2gol3bbdvzcAJ/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    button.textContent = 'Subscribed!';
+                    button.style.background = '#28a745';
+                    emailInput.value = '';
+                    
+                    // Show success message
+                    const successMsg = document.createElement('p');
+                    successMsg.textContent = 'Thanks! We\'ll notify you when the next ordering window opens.';
+                    successMsg.style.color = '#28a745';
+                    successMsg.style.marginTop = '10px';
+                    successMsg.style.fontWeight = '500';
+                    this.appendChild(successMsg);
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = '';
+                        button.disabled = false;
+                        if (successMsg.parentNode) {
+                            successMsg.remove();
+                        }
+                    }, 3000);
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                button.textContent = 'Try Again';
+                button.style.background = '#dc3545';
+                
+                // Show error message
+                const errorMsg = document.createElement('p');
+                errorMsg.textContent = 'Something went wrong. Please try again.';
+                errorMsg.style.color = '#dc3545';
+                errorMsg.style.marginTop = '10px';
+                this.appendChild(errorMsg);
                 
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.style.background = '';
                     button.disabled = false;
+                    if (errorMsg.parentNode) {
+                        errorMsg.remove();
+                    }
                 }, 3000);
-            }, 1000);
+            });
         });
     }
     
