@@ -1,0 +1,132 @@
+1. One-Page Product Brief
+
+Spartan Spirit Speaker – Pleasant Valley High School
+
+Project Overview
+The Spartan Spirit Speaker is a student-designed, student-built collectible Bluetooth speaker created by Pleasant Valley High School’s Robotics Team and Band program. Each year, students design a new limited-run Spartan helmet speaker that plays the PV fight song and other school-approved audio. Sales of the speaker directly support student clubs, performing arts, and STEM activities at Pleasant Valley.
+
+Purpose & Goals
+	•	Fundrasing while giving the community a tangible symbol of school pride.
+	•	Provide real-world experience in design, engineering, manufacturing, marketing, and business.
+	•	Build a long-term “collectible series” that families, alumni, and fans can look forward to each year.
+
+Product Description
+	•	Custom Spartan helmet speaker in PV colors and branding.
+	•	Plays the Pleasant Valley fight song.
+	•	Designed, prototyped, and manufactured by PV students using modern tools (3D modeling, 3D printing/CNC, electronics).
+	•	Limited annual edition – design refreshed every school year to reflect the creativity of that student cohort (“collect them all”).
+
+Student Learning Outcomes
+
+Students participate in the complete product lifecycle:
+	•	Concept & Design – market research, concept sketches, CAD/3D modeling, design reviews.
+	•	Engineering & Electronics – prototyping, audio hardware selection, wiring, testing.
+	•	Manufacturing – print/production planning, quality checks, assembly workflows.
+	•	Branding & Marketing – naming, logo/packaging, website content, social posts, sales copy.
+	•	Sales & Order Management – pre-order windows, demand planning, customer communication.
+	•	Operations & Business – budgeting, cost analysis, margin planning, fundraising reporting.
+
+Fundraising Model
+	•	Speakers are sold in time-boxed ordering windows.
+	•	Once production capacity is filled, that window closes (creating real-world constraints and urgency).
+	•	Net proceeds support student activities.
+
+Target Customers
+	•	PV parents and families
+	•	PV alumni, community supporters, and boosters
+	•	Students who want a unique piece of Spartan memorabilia
+
+Key Differentiators
+	•	100% student-run design and production process
+	•	Annual limited-edition design – no two years are the same
+	•	Combines school spirit, music, and STEM into one collectible product
+	•	Local, tangible impact: every purchase supports PV students directly
+
+Call to Action
+	•	Primary: “Sign up to be notified when the next ordering window opens.”
+	•	Secondary (when live): “Pre-order your Spartan Spirit Speaker now – limited quantities available.”
+
+------------------------------------------------------------
+PROJECT REQUIREMENTS DOCUMENT (FOR CLAUDE CODE)
+
+Technical Stack
+- Frontend: HTML5, CSS3, vanilla JavaScript
+- Version Control: Git + GitHub
+- Hosting: Vercel
+- Data Capture: Google Forms for email signup
+
+Files & Structure
+/
+  index.html
+  styles.css
+  script.js
+  /assets
+      product-photo.jpg
+      pv-logo.png
+  README.md
+  UX-STANDARDS.md
+  CONTENT-BLOCKS.md
+  STRUCTURE-OUTLINE.md
+  VERCEL-NOTES.md
+
+Website Content Sections
+1. Hero Section
+2. About the Project
+3. How It Works (Ordering Windows)
+4. Student Impact (Unified Section)
+5. Collectible Series
+6. Email Signup
+7. FAQ
+8. Footer (Generic school-safe footer)
+
+Functional Requirements
+- Mobile-first responsive layout
+- Smooth scrolling navigation
+- Email-only Google Form integration
+- Accessibility: alt text, keyboard navigation, WCAG AA color contrast
+- Performance: optimized images, non-blocking scripts
+
+Acceptance Criteria
+- Deployed on Vercel
+- Works on mobile/tablet/desktop
+- Email form successfully submits
+- Easy for staff to update text in index.html
+
+------------------------------------------------------------
+UX DESIGN STANDARDS (SUMMARY)
+
+Brand & Tone
+- Community-friendly, student-led, approachable, school-pride focused.
+
+Colors
+- Primary Navy: #143A63
+- Secondary Blue: #215A8D
+- Light Gray: #F2F4F7
+- White: #FFFFFF
+- Accent Gold: #F4B000
+
+Typography
+- System UI Sans-serif stack
+- Clear heading hierarchy (H1 > H2 > H3)
+
+Layout & Spacing
+- 8px spacing grid
+- Section padding: 64px desktop / 40px mobile
+
+Components
+- Sticky navigation bar
+- Hero with CTA
+- Cards for FAQs and impact
+- Buttons: primary navy, secondary outline
+
+Interaction Guidelines
+- Smooth scroll
+- Subtle animations only
+- All interactive elements keyboard accessible
+
+Privacy Statement
+“We only use your email to notify you about Spartan Spirit Speaker ordering windows. We never share or sell your information. By submitting your email address you are giving us permission to send you marketing information about Spartan Spirit Speaker.”
+
+Footer (Generic)
+“Spartan Spirit Speaker Project • Pleasant Valley High School • Copyright © 2025”
+------------------------------------------------------------
