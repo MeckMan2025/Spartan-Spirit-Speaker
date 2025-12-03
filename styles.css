@@ -537,10 +537,22 @@ section h2 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
     .nav-menu {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: var(--spacing-md) 0;
+        gap: var(--spacing-sm);
     }
-    
+
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+
     .nav-logo h2 {
         font-size: 1rem;
     }

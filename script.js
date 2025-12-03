@@ -7,18 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const navHeight = document.querySelector('#navbar').offsetHeight;
                 const targetPosition = targetSection.offsetTop - navHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+
+                // Close mobile menu after clicking a link
+                const navMenu = document.querySelector('.nav-menu');
+                if (navMenu && navMenu.classList.contains('mobile-open')) {
+                    navMenu.classList.remove('mobile-open');
+                    navMenu.style.display = 'none';
+                }
             }
         });
     });
@@ -200,6 +207,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle mobile menu
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('mobile-open');
+            if (navMenu.classList.contains('mobile-open')) {
+                navMenu.style.display = 'flex';
+            } else {
+                navMenu.style.display = 'none';
+            }
         });
         
         // Show/hide mobile menu button based on screen size
