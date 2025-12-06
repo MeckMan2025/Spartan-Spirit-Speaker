@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     
-    // Add click event listeners for smooth scrolling
+    // Add click event listeners for navigation
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Check if it's a cross-page link (contains .html)
+            if (href.includes('.html')) {
+                // Let the browser handle the page navigation
+                return;
+            }
+            
+            // Handle same-page section links
             e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const targetSection = document.querySelector(href);
 
             if (targetSection) {
                 const navHeight = document.querySelector('#navbar').offsetHeight;
@@ -26,8 +33,70 @@ document.addEventListener('DOMContentLoaded', function() {
                     navMenu.classList.remove('mobile-open');
                     navMenu.style.display = 'none';
                 }
+            } else {
+                // If section doesn't exist on current page, navigate to home page
+                if (href.startsWith('#') && window.location.pathname !== '/index.html' && window.location.pathname !== '/') {
+                    window.location.href = 'index.html' + href;
+                }
             }
         });
+    });
+    
+    // Handle navigation from other pages with hash fragments
+    function handleHashNavigation() {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetSection = document.querySelector(hash);
+            if (targetSection) {
+                // Small delay to ensure page is loaded
+                setTimeout(() => {
+                    const navHeight = document.querySelector('#navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+    }
+    
+    // Handle hash navigation on page load and hash changes
+    handleHashNavigation();
+    window.addEventListener('hashchange', handleHashNavigation);
+    
+    // Dynamic hero button functionality
+    function updateHeroButtons() {
+        const notifyBtn = document.getElementById('notify-btn');
+        const learnBtn = document.getElementById('learn-ordering-btn');
+        
+        if (notifyBtn && learnBtn) {
+            // Check ordering status (this would normally come from an API)
+            const orderingStatus = localStorage.getItem('ordering-status') || 'closed';
+            
+            if (orderingStatus === 'open') {
+                // Change notify button to order button when ordering is open
+                notifyBtn.textContent = 'Order Now';
+                notifyBtn.href = 'ordering.html';
+                learnBtn.textContent = 'Learn About Ordering';
+            } else {
+                // Default state when ordering is closed
+                notifyBtn.textContent = 'Get Notified for Next Ordering Window';
+                notifyBtn.href = '#signup';
+                learnBtn.textContent = 'Learn About Ordering';
+            }
+        }
+    }
+    
+    // Update hero buttons on page load
+    updateHeroButtons();
+    
+    // Listen for storage changes (when ordering status is updated from other pages)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'ordering-status') {
+            updateHeroButtons();
+        }
     });
     
     // Navbar scroll effect

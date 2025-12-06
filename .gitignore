@@ -1,0 +1,24 @@
+# Spartan Spirit Speaker - Files not to commit to git
+
+# Planning and internal documentation
+ordering-system-plan.txt
+ordering-page-implementation-plan.txt
+
+# Environment and config files
+.env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.DS_Store

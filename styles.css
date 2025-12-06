@@ -617,6 +617,461 @@ section h2 {
     }
 }
 
+/* Ordering Page Specific Styles */
+
+/* Status Banner */
+.status-banner {
+    padding: var(--spacing-md) 0;
+    margin-top: 60px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.status-banner.closed {
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    color: var(--white);
+}
+
+.status-banner.open {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: var(--white);
+}
+
+.status-banner.sold-out {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: var(--white);
+}
+
+.status-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    color: inherit;
+}
+
+.status-content p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+#countdown-container {
+    margin-top: var(--spacing-sm);
+}
+
+#countdown-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    background: var(--primary-navy);
+    color: var(--white);
+}
+
+.nav-link.active:hover {
+    background: var(--secondary-blue);
+    color: var(--white);
+}
+
+/* Ordering Section */
+.ordering {
+    background: var(--white);
+    padding: var(--spacing-2xl) 0;
+}
+
+.ordering-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.action-section {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.action-section h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.action-section p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Order Form Container */
+.order-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    text-align: left;
+}
+
+.order-form-wrapper {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+}
+
+.order-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.order-form .form-group {
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.order-form .form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-xs);
+}
+
+.order-form .form-group input,
+.order-form .form-group select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid #e0e6ed;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.order-form .form-group input:focus,
+.order-form .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-navy);
+    box-shadow: 0 0 0 3px rgba(20, 58, 99, 0.1);
+}
+
+.form-help {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-top: var(--spacing-xs);
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.terms-checkbox input[type="checkbox"] {
+    margin-top: 2px;
+    width: auto;
+}
+
+.terms-checkbox label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Order Summary */
+.order-summary {
+    background: var(--white);
+    border: 2px solid var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    height: fit-content;
+    position: sticky;
+    top: calc(60px + var(--spacing-md));
+}
+
+.order-summary h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+    font-size: 1rem;
+}
+
+.summary-line.total {
+    border-top: 2px solid var(--light-gray);
+    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--primary-navy);
+}
+
+.tax-note {
+    text-align: center;
+    margin: var(--spacing-md) 0;
+}
+
+.tax-note small {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.btn-large {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-large:disabled {
+    background: #e0e6ed;
+    color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-large:disabled:hover {
+    background: #e0e6ed;
+    transform: none;
+}
+
+.payment-security {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.payment-security p {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Hero CTA Button Layout */
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Ordering Info Grid */
+.how-ordering-works {
+    background: var(--light-gray);
+}
+
+.ordering-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+}
+
+.info-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.5;
+}
+
+.info-card li:before {
+    content: '•';
+    color: var(--accent-gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.25rem;
+}
+
+/* Timeline Styles */
+.timeline {
+    background: var(--white);
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.timeline-step:not(:last-child):after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: #e0e6ed;
+    z-index: 1;
+}
+
+
+.timeline-step .step-number {
+    background: #e0e6ed;
+    color: #6c757d;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 auto var(--spacing-sm);
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-step .step-number {
+    background: var(--primary-navy);
+    color: var(--white);
+}
+
+.timeline-step h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-date {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #CC5500;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.5px;
+}
+
+.timeline-step p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+
+/* Ordering Form Signup (same styling as main page) */
+.ordering-signup-form {
+    margin-bottom: var(--spacing-md);
+}
+
+.ordering-signup-form .form-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    justify-content: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ordering-signup-form .form-group input {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 2px solid #e0e6ed;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.ordering-signup-form .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-navy);
+    box-shadow: 0 0 0 3px rgba(20, 58, 99, 0.1);
+}
+
+/* Responsive Design for Ordering Page */
+@media (max-width: 768px) {
+    .status-banner {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .status-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .status-content p {
+        font-size: 1rem;
+    }
+    
+    .order-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .order-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-cta .btn-primary,
+    .hero-cta .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .timeline-container {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .timeline-step:not(:last-child):after {
+        display: none;
+    }
+    
+    .ordering-signup-form .form-group {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-sm);

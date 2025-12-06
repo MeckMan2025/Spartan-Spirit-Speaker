@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Spartan Spirit Speaker | Pleasant Valley High School</title>
+    <meta name="description" content="Order your student-designed, student-built Spartan Spirit Speaker. Limited annual editions supporting Pleasant Valley High School programs.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Order Spartan Spirit Speaker">
+    <meta property="og:description" content="Order your student-designed collectible speaker featuring the Pleasant Valley fight song. Limited annual editions supporting PV student programs.">
+    <meta property="og:image" content="https://spartan-spirit-speaker-5jz7.vercel.app/assets/product-concept.jpg">
+    <meta property="og:url" content="https://spartan-spirit-speaker-5jz7.vercel.app/ordering.html">
+    <meta property="og:site_name" content="Spartan Spirit Speaker">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Order Spartan Spirit Speaker">
+    <meta name="twitter:description" content="Order your student-designed collectible speaker featuring the Pleasant Valley fight song. Limited annual editions supporting PV student programs.">
+    <meta name="twitter:image" content="https://spartan-spirit-speaker-5jz7.vercel.app/assets/product-concept.jpg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h2>Spartan Spirit Speaker</h2>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#hero" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="index.html#impact" class="nav-link">Impact</a></li>
+                <li><a href="#ordering" class="nav-link active">Ordering</a></li>
+                <li><a href="index.html#signup" class="nav-link">Sign Up</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Dynamic Status Banner -->
+        <section id="status-banner" class="status-banner">
+            <div class="container">
+                <div class="status-content">
+                    <h2 id="status-title">Ordering Currently Closed</h2>
+                    <p id="status-message">Sign up below to be notified when ordering opens</p>
+                    <div id="countdown-container" style="display: none;">
+                        <p id="countdown-text">Window closes in <span id="countdown-timer"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Primary Action Section -->
+        <section id="ordering" class="ordering">
+            <div class="container">
+                <div class="ordering-content">
+                    
+                    <!-- Closed State: Email Signup -->
+                    <div id="signup-section" class="action-section">
+                        <h2>Get Notified When Ordering Opens</h2>
+                        <p>Be the first to know when the next Spartan Spirit Speaker ordering window opens.</p>
+                        <form class="ordering-signup-form" action="#" method="post">
+                            <div class="form-group">
+                                <label for="notify-email" class="sr-only">Email address</label>
+                                <input type="email" id="notify-email" name="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn-primary">Notify Me</button>
+                            </div>
+                            <p class="privacy-notice">We only use your email to notify you about Spartan Spirit Speaker ordering windows. We never share or sell your information.</p>
+                        </form>
+                    </div>
+
+                    <!-- Open State: Order Form -->
+                    <div id="order-section" class="action-section" style="display: none;">
+                        <h2>Place Your Order</h2>
+                        <p class="order-intro">Complete the form below to order your Spartan Spirit Speaker. Payment is processed securely through Stripe.</p>
+                        
+                        <div class="order-container">
+                            <div class="order-form-wrapper">
+                                <form id="order-form" class="order-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="customer-name">Your Name *</label>
+                                            <input type="text" id="customer-name" name="customerName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="customer-phone">Phone Number *</label>
+                                            <input type="tel" id="customer-phone" name="customerPhone" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="customer-email">Email Address *</label>
+                                            <input type="email" id="customer-email" name="customerEmail" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pickup-person">Pickup Person Name *</label>
+                                            <input type="text" id="pickup-person" name="pickupPerson" required>
+                                            <small class="form-help">Person authorized to pick up the order</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="quantity">Quantity *</label>
+                                        <select id="quantity" name="quantity" required>
+                                            <option value="1">1 Speaker - $25.00</option>
+                                            <option value="2">2 Speakers - $50.00</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="terms-checkbox">
+                                            <input type="checkbox" id="terms-accept" name="termsAccept" required>
+                                            <label for="terms-accept">
+                                                I understand that this is a fundraiser purchase with no refunds, and I agree to pick up my order during scheduled school events. *
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="order-summary">
+                                <h3>Order Summary</h3>
+                                <div class="summary-line">
+                                    <span>Quantity:</span>
+                                    <span id="summary-quantity">1</span>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Price per speaker:</span>
+                                    <span>$25.00</span>
+                                </div>
+                                <div class="summary-line total">
+                                    <span>Total:</span>
+                                    <span id="summary-total">$25.00</span>
+                                </div>
+                                <div class="tax-note">
+                                    <small>No tax (tax-exempt fundraiser)</small>
+                                </div>
+                                
+                                <button type="button" id="checkout-button" class="btn-primary btn-large" disabled>
+                                    Complete Order with Stripe
+                                </button>
+                                
+                                <div class="payment-security">
+                                    <p><strong>🔒 Secure Payment</strong></p>
+                                    <p>Powered by Stripe. We don't store your payment information.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sold Out State -->
+                    <div id="soldout-section" class="action-section" style="display: none;">
+                        <h2>This Year's Production Sold Out</h2>
+                        <p>Thank you for your interest! This year's Spartan Spirit Speaker production has reached capacity.</p>
+                        <form class="ordering-signup-form" action="#" method="post">
+                            <div class="form-group">
+                                <label for="soldout-email" class="sr-only">Email address</label>
+                                <input type="email" id="soldout-email" name="email" placeholder="Enter your email for next year" required>
+                                <button type="submit" class="btn-primary">Join List for Next Year</button>
+                            </div>
+                            <p class="privacy-notice">Get notified about next year's design and ordering window.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- How Ordering Works Section -->
+        <section id="how-ordering-works" class="how-ordering-works">
+            <div class="container">
+                <h2>How Ordering Works</h2>
+                <div class="ordering-info-grid">
+                    <div class="info-card">
+                        <h3>What You'll Need</h3>
+                        <ul>
+                            <li>Your name and contact information</li>
+                            <li>Phone number for order confirmation</li>
+                            <li>Email address for updates</li>
+                            <li>Name of person authorized for pickup</li>
+                            <li>Payment method (credit/debit card)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Payment & Pricing</h3>
+                        <ul>
+                            <li>$25.00 per Spartan Spirit Speaker</li>
+                            <li>Maximum 2 speakers per order</li>
+                            <li>Payment required at time of order</li>
+                            <li>Secure processing through Stripe</li>
+                            <li>No refunds (fundraiser policy)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Order Process</h3>
+                        <ul>
+                            <li>Complete order form with your information</li>
+                            <li>Select quantity (1 or 2 speakers)</li>
+                            <li>Pay securely through Stripe</li>
+                            <li>Receive immediate email confirmation</li>
+                            <li>Get pickup notification when ready</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Pickup & Timeline</h3>
+                        <ul>
+                            <li>Pickup only at Pleasant Valley High School</li>
+                            <li>Available during school events</li>
+                            <li>Find the Spartan Spirit Speaker table</li>
+                            <li>Timeline: order to pickup varies by production</li>
+                            <li>Email notifications keep you updated</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Timeline -->
+        <section id="timeline" class="timeline">
+            <div class="container">
+                <h2>Order to Pickup Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <h3>Design Phase</h3>
+                        <div class="step-date">May</div>
+                        <p>Student research, concept development, and final design creation</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <h3>Ordering & Payment</h3>
+                        <div class="step-date">September</div>
+                        <p>Limited-time ordering period with secure payment processing and order confirmation</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <h3>Manufacturing</h3>
+                        <div class="step-date">October–November</div>
+                        <p>Student assembly, testing, and quality control</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                        <h3>Pickup Events</h3>
+                        <div class="step-date">December–May</div>
+                        <p>Pickup available at school events with student-staffed table</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ordering FAQ -->
+        <section id="ordering-faq" class="faq">
+            <div class="container">
+                <h2>Ordering FAQ</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What payment methods are accepted?</h3>
+                        <p>We accept all major credit cards, debit cards, Apple Pay, Google Pay, and PayPal through our secure Stripe payment processor.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I modify my order after placing it?</h3>
+                        <p>Due to our manufacturing process, orders cannot be modified once payment is processed. Please review your order carefully before completing payment.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What if I can't pick up during events?</h3>
+                        <p>You can designate someone else to pick up for you using the "Pickup Person Name" field in your order. They'll need to provide your order number.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How will I know when my speaker is ready?</h3>
+                        <p>We'll send email notifications when your speaker is ready for pickup, along with information about upcoming pickup events at the school.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I order more than 2 speakers?</h3>
+                        <p>To ensure fair access, each validated email address may purchase up to 2 speakers. You're welcome to place additional orders using a different valid email address, as long as the ordering window remains open.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is this purchase tax-deductible?</h3>
+                        <p>This is a fundraiser purchase. We'll provide receipt information, but please consult your tax advisor regarding deductibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Spartan Spirit Speaker Project</p>
+            <p>Pleasant Valley Robotics • Bettendorf, Iowa, USA</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ordering.js"></script>
+</body>
+</html>
